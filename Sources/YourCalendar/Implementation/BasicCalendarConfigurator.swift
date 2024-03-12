@@ -10,7 +10,7 @@ public final class BasicCalendarViewConfigurator: CalendarViewConfiguratorProtoc
     public typealias Model = CalendarViewDayCell.Model
     
     /// Selected day model
-    private(set) var selectedDay: Date?
+    public private(set) var selectedDay: Date?
     
     private var formatter = DateFormatter().with {
         $0.dateFormat = "d"
