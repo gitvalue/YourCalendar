@@ -8,7 +8,10 @@ import UIKit
 public final class BasicCalendarViewConfigurator: CalendarViewConfiguratorProtocol {
     public typealias Predicate = (Date) -> Bool
     public typealias Model = CalendarViewDayCell.Model
-
+    
+    /// Selected day model
+    private(set) var selectedDay: Date?
+    
     private var formatter = DateFormatter().with {
         $0.dateFormat = "d"
     }
@@ -24,8 +27,6 @@ public final class BasicCalendarViewConfigurator: CalendarViewConfiguratorProtoc
     private lazy var weekdays = (firstWeekdayIndex..<firstWeekdayIndex + Constants.weekdaysCount).map {
         (Constants.calendar.shortWeekdaySymbols[safe: $0 % Constants.weekdaysCount] ?? "").uppercased()
     }
-
-    private var selectedDay: Date?
 
     /// Designated initialiser
     /// - Parameter enumerator: Calendar page dates enumerator
